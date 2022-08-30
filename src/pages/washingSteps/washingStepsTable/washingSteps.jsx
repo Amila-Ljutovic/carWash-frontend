@@ -9,7 +9,7 @@ import { washingSteps } from "../../../data";
 
 function WashingSteps() {
     return ( 
-        <Table data={washingSteps} columns={COLUMNS} />
+        <Table data={washingSteps} columns={COLUMNS} title={'Washing steps'}/>
     );
 }
 

@@ -11,7 +11,6 @@ export const TableWrapper = styled.div`
     background: white;
     overflow: auto;
     border-radius: 4px; 
-    border: 1px solid #eae9ef;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
 
 `;
@@ -19,8 +18,6 @@ export const TableStyle = styled.table`
     border-collapse: collapse;
     width: 100%;
 `;
-
-
 
 export const TableCell = styled.tr`
     text-align: center;
@@ -31,6 +28,7 @@ export const TableCell = styled.tr`
     color: #6d648e;
     border-top: 1px solid #f3f3f4;
     height: 40px;
+    font-weight: 300;
 `;
 
 export const TableHeader = styled.th`
@@ -42,6 +40,16 @@ export const TableHeader = styled.th`
     font-size: 0.75rem;
     line-height: 1rem;
     text-align: center;
-    background-color: #827a9e;
-    color: white;
+    color: #2e205d;
+    font-weight: 700;
+`;
+
+export const Title = styled.div`
+    font-size: 30px;
+    font-weight: 700;
+    color: #2e205d;
+`;
+
+export const TitleWrapper = styled.div`
+    margin: 30px 0;
 `;

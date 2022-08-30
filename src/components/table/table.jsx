@@ -4,9 +4,9 @@ import React, { useMemo } from "react";
 import { useTable } from "react-table";
 
 //styled
-import { TableStyle, TableCell, TableHeader, TableWrapper, Container } from './styledTable'
+import { TableStyle, TableCell, TableHeader, TableWrapper, Container, Title, TitleWrapper } from './styledTable'
 
-function Table({ data, columns }) {
+function Table({ data, columns, title }) {
 
     const dataArray = useMemo(() => data, [])
     const columnArray = useMemo(() => columns, [])
@@ -27,6 +27,11 @@ function Table({ data, columns }) {
 
     return (
         <Container>
+            <TitleWrapper>
+                <Title>
+                    {title}
+                </Title>
+            </TitleWrapper>
             <TableWrapper>
                 <TableStyle {...getTableProps()}>
                     <thead>
