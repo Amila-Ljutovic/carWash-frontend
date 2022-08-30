@@ -1,10 +1,14 @@
 import React, { useMemo } from "react";
 
 //react table
-import { useTable } from "react-table";
+import { useTable, useGlobalFilter, usePagination } from "react-table";
 
 //styled
 import { TableStyle, TableCell, TableHeader, TableWrapper, Container, Title, TitleWrapper } from './styledTable'
+
+//components
+import Search from "../search/search";
+import Pagination from "../pagination/pagination";
 
 function Table({ data, columns, title }) {
 
@@ -14,16 +18,25 @@ function Table({ data, columns, title }) {
     const tableInstance = useTable({
         columns: columnArray,
         data: dataArray
-    })
+    }, useGlobalFilter, usePagination)
 
     const {
         getTableProps,
         getTableBodyProps,
         headerGroups,
         prepareRow,
-        rows,
-       
+        page,
+        nextPage,
+        previousPage,
+        canNextPage,
+        canPreviousPage,
+        pageOptions,
+        gotoPage,
+        state,
+        setGlobalFilter
     } = tableInstance
+    
+    const { globalFilter, pageIndex } = state
 
     return (
         <Container>
@@ -31,6 +44,7 @@ function Table({ data, columns, title }) {
                 <Title>
                     {title}
                 </Title>
+                <Search filter={globalFilter} setFilter={setGlobalFilter}></Search>
             </TitleWrapper>
             <TableWrapper>
                 <TableStyle {...getTableProps()}>
@@ -53,7 +67,7 @@ function Table({ data, columns, title }) {
                     </thead>
                     <tbody {...getTableBodyProps}>
                         {
-                            rows.map((row) => {
+                            page.map((row) => {
                                 prepareRow(row)
                                 return (
                                     <TableCell {...row.getRowProps()}>
@@ -71,6 +85,8 @@ function Table({ data, columns, title }) {
                     </tbody>
                 </TableStyle>
             </TableWrapper>
+            <Pagination nextPage={nextPage} previousPage={previousPage} canNextPage={canNextPage} canPreviousPage={canPreviousPage} 
+            pageIndex={pageIndex} numberOfPages={pageOptions.length} gotoPage={gotoPage}></Pagination>
         </Container>
      );
 }
