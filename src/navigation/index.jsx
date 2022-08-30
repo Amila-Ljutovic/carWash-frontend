@@ -1,4 +1,3 @@
-import { render } from "react-dom";
 import {
   BrowserRouter,
   Routes,
@@ -9,7 +8,7 @@ import {
 import Dashboard from "../pages/dashboard/Dashboard.jsx"
 import Customers from "../pages/customers/Customers.jsx"
 import WashingPrograms from "../pages/washingPrograms/washingPrograms.jsx";
-import WashingSteps from "../pages/washingSteps/washingSteps.jsx";
+import WashingSteps from "../pages/washingSteps/washingStepsTable/washingSteps.jsx";
 
 //layout
 import Layout from "../layout/layout.jsx";

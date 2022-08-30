@@ -6,7 +6,7 @@ export const Item = styled.div`
     align-items: center;
     justify-content: left;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 3px;
     color: ${(props) =>
         props.isActive ? '#2e205d' : '#c0bcce'} ;;
     background-color: ${(props) =>

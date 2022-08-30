@@ -1,8 +1,13 @@
+import React from "react";
+
+//styled
+import { Wrapper } from "./styledNavbar";
+
 function Navbar() {
     return ( 
-        <>
-        Navbar
-        </> 
+        <Wrapper>
+            Navbar
+        </Wrapper> 
     );
 }
 
