@@ -7,22 +7,22 @@ export const sidebarList = [
     {
         title: 'Dashboard',
         icon: <AiIcons.AiFillDashboard />,
-        path: '/'
+        path: ''
     },
     {
         title: 'Customers',
         icon: <FiIcons.FiUsers />,
-        path: '/customers'
+        path: 'customers'
     },
     {
         title: 'Washing steps',
         icon: <AiIcons.AiOutlineOrderedList />,
-        path: '/washing-steps'
+        path: 'washing-steps'
     },
     {
         title: 'Washing programs',
         icon: <MdIcons.MdLocalCarWash />,
-        path: '/washing-programs'
+        path: 'washing-programs'
     },
 ]
 

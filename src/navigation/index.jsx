@@ -9,7 +9,8 @@ import Dashboard from "../pages/dashboard/Dashboard.jsx"
 import Customers from "../pages/customers/Customers.jsx"
 import WashingPrograms from "../pages/washingPrograms/washingPrograms.jsx";
 import WashingSteps from "../pages/washingSteps/washingStepsTable/washingSteps.jsx";
-
+import CreateWashingStep from "../pages/washingSteps/washingStep/create/create.jsx";
+import EditWashingStep from "../pages/washingSteps/washingStep/edit/edit.jsx";
 //layout
 import Layout from "../layout/layout.jsx";
 
@@ -20,25 +21,13 @@ const Navigation = () => {
             <Layout>
                 <Routes>
                     <Route exact path="/" element={<Dashboard />} />
-                    <Route path="/customers" element={<Customers />} />
+                    <Route path="customers" element={<Customers />} />
                     <Route path="/washing-steps" element={<WashingSteps />} />
+                    <Route path="/washing-steps/create" element={<CreateWashingStep />} />
+                    <Route path="/washing-steps/:id" element={<EditWashingStep />} />
                     <Route path="/washing-programs" element={<WashingPrograms />} />
                 </Routes>
-            </Layout>
-                    {/* <Route index element={<Home />} />
-                    <Route path="teams" element={<Teams />}>
-                    <Route path=":teamId" element={<Team />} />
-                    <Route path=":teamId/edit" element={<EditTeam />} />
-                    <Route path="new" element={<NewTeamForm />} />
-                    <Route index element={<LeagueStandings />} />
-                    </Route>
-                </Route>
-                <Route element={<PageLayout />}>
-                    <Route path="/privacy" element={<Privacy />} />
-                    <Route path="/tos" element={<Tos />} />
-                </Route>
-                <Route path="contact-us" element={<Contact />} /> */}
-            
+            </Layout>   
         </BrowserRouter>
     )
 }

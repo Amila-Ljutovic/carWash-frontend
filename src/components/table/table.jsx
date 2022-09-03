@@ -4,13 +4,15 @@ import React, { useMemo } from "react";
 import { useTable, useGlobalFilter, usePagination } from "react-table";
 
 //styled
-import { TableStyle, TableCell, TableHeader, TableWrapper, Container, Title, TitleWrapper } from './styledTable'
+import { TableStyle, TableCell, TableHeader, TableWrapper, Container, Title, TitleWrapper, PageHeader } from './styledTable'
 
 //components
 import Search from "../search/search";
 import Pagination from "../pagination/pagination";
+import AddNewButton from "../button/addNewButton";
+import * as HiIcons from 'react-icons/hi'
 
-function Table({ data, columns, title }) {
+function Table({ data, columns, title, buttonLabel, pathname }) {
 
     const dataArray = useMemo(() => data, [])
     const columnArray = useMemo(() => columns, [])
@@ -40,12 +42,15 @@ function Table({ data, columns, title }) {
 
     return (
         <Container>
-            <TitleWrapper>
-                <Title>
-                    {title}
-                </Title>
-                <Search filter={globalFilter} setFilter={setGlobalFilter}></Search>
-            </TitleWrapper>
+            <PageHeader>
+                <TitleWrapper>
+                    <Title>
+                        {title}
+                    </Title>
+                    <Search filter={globalFilter} setFilter={setGlobalFilter}></Search>
+                </TitleWrapper>
+                <AddNewButton label={buttonLabel} icon={<HiIcons.HiPlus/>} pathname={pathname}></AddNewButton>
+            </PageHeader>  
             <TableWrapper>
                 <TableStyle {...getTableProps()}>
                     <thead>

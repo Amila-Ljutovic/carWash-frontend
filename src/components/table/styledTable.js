@@ -54,3 +54,9 @@ export const TitleWrapper = styled.div`
     margin: 30px 0;
     display: flex;
 `;
+
+export const PageHeader = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;

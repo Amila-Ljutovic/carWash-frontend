@@ -10,7 +10,7 @@ function SidebarItem({data, isActive}) {
     let navigate = useNavigate()
 
     const goToPage = (path) => {
-        navigate(`${path}`)
+        navigate(`/${path}`)
     }
     return ( 
         <Item onClick={() => goToPage(data.path)} isActive={isActive}>

@@ -24,7 +24,7 @@ function Sidebar() {
                         return (
                             <SidebarItem 
                                 data={item}
-                                isActive={pathname === item.path}
+                                isActive={pathname.split('/')[1] === item.path}
                                 key={index}
                             />
                         )
