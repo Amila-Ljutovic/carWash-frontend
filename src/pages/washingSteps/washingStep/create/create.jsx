@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 
 //components
 import WashingStepForm from "../form/form";
@@ -7,12 +8,18 @@ import WashingStepForm from "../form/form";
 import { FormWrapper, Title } from "./styledCreate";
 
 function CreateWashingStep() {
+    const [data, setData] = useState({
+        name: '',
+        duration: '',
+        substance: ''
+    })
+
     return ( 
         <FormWrapper>
             <Title>
                 {'Create new washing step'}
             </Title>
-            <WashingStepForm />
+            <WashingStepForm data={data} setData={setData}/>
         </FormWrapper> 
     );
 }

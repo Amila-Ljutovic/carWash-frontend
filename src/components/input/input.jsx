@@ -10,10 +10,10 @@ function Input({ type='text', value, label, disabled, placeholder, onChange, req
             <InputWrapper>
                 <StyledInput 
                     type={type}
-                    
+                    value={value}
                     disabled={disabled}
                     placeholder={placeholder}
-                   
+                    onChange={(e) => onChange(e.target.value)}
                 />
             </InputWrapper>
         </Wrapper>

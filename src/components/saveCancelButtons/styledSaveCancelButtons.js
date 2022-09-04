@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 
 export const Button = styled.div`
     padding: 5px;
-    background-color: ${(props) => props.isCancel ? '#D11A2A' : '#169116'};
+    background-color: ${(props) => props.isCancel ? '#D11A2A' : '#2e205d'};
     border-radius: 4px;
     width: 81px;
     text-align: center;

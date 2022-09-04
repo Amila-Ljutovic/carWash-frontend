@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 //styled
 import { Wrapper, Button } from "./styledSaveCancelButtons"
 
-function SaveCancelButtons({path}) {
+function SaveCancelButtons({path, onSubmit}) {
     const navigate = useNavigate()
 
     return ( 
         <Wrapper>
-            <Button>{'Save'}</Button>
+            <Button onClick={() => onSubmit()}>{'Save'}</Button>
             <Button isCancel={true} onClick={() => navigate(`/${path}`)}>{'Cancel'}</Button>
         </Wrapper>
      );

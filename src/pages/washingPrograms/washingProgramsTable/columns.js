@@ -1,4 +1,5 @@
 import ActionCell from "../../../components/actionCell/actionCell"
+import StepsList from "../../../components/stepsList/stepsList"
 
 export const COLUMNS = [
     {
@@ -10,19 +11,25 @@ export const COLUMNS = [
         accessor: 'name'
     },
     {
-        Header: 'Duration',
-        accessor: 'duration'
+        Header: 'Price',
+        accessor: 'price'
     },
     {
-        Header: 'Substance',
-        accessor: 'substance'
+        Header: 'Washing steps',
+        accessor: 'washing_steps',
+        Cell:  ( {value}) => {
+            console.log(value, 'value')
+           return <StepsList 
+                list={value}
+            />
+        }
     },
     {
         Header: 'Actions',
         accessor: (value) => value,
         Cell:  ( {value}) => {
            return <ActionCell 
-                path={'washing-steps'}
+                path={'washing-programs'}
                 value={value}
             />
         }
