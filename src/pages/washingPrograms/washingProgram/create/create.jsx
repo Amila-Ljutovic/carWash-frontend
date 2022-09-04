@@ -11,27 +11,9 @@ function CreateWashingProgram() {
     const [data, setData] = useState({
         name: '',
         price: '',
-        washingSteps: [
-            {
-                id:1,	
-                name: 'test',	
-                duration: 3,
-                substance: 'water'
-            },
-            {
-                id: 2,
-                name: 'amila',
-                duration: 3,
-                substance: 'test',
-             },
-            {
-                id: 3,
-                name: 'test',
-                duration: 4,
-                substance: 'water'
-            }
-        ]
+        washing_steps: []
     })
+
 
 
     return ( 

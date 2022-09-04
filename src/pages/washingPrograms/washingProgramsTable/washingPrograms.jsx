@@ -12,13 +12,13 @@ import { useState } from "react";
 
 function WashingPrograms() {
 
-    //const [washingPrograms, setWashingPrograms] = useState();
+    const [washingPrograms, setWashingPrograms] = useState();
 
-    // useEffect(()=>{
-    //     axios.get('washing-programs/all').then((res) => {
-    //         setWashingPrograms(res.data);
-    //     }).catch(err => console.log(err))
-    // }, [])
+    useEffect(()=>{
+        axios.get('washing-programs/all').then((res) => {
+            setWashingPrograms(res.data);
+        }).catch(err => console.log(err))
+    }, [])
 
     return (
         <>

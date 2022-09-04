@@ -20,6 +20,9 @@ export const StyledInput = styled.input`
     &:focus {
         outline: none;
     }
+    &:disabled {
+        background-color: #e9eaef;
+    }
 `;
 
 export const InputWrapper = styled.div`
@@ -31,4 +34,12 @@ export const InputWrapper = styled.div`
     &:focus-within {
         border: 1px solid darkgray;
     }
+`;
+
+export const InputWrapperDisabled = styled.div`
+    background: #e9eaef;
+    width: 100%;
+    border: 1px solid lightgray;
+    padding: 5px;
+    border-radius: 3px;
 `;

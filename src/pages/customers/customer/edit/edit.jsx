@@ -5,18 +5,18 @@ import { useParams } from "react-router-dom";
 import axios from 'axios'
 
 //components
-import WashingStepForm from "../form/form";
+import CustomerForm from "../form/form";
 
 //styled
 import { FormWrapper, Title } from "./styledEdit"
 
-function EditWashingStep() {
+function EditCustomer() {
     const { id } = useParams()
     const [data, setData] = useState(null)
 
     useEffect(() => {
         if(id) {
-            axios.get(`washing-steps/${id}`).then((res) => {
+            axios.get(`customers/${id}`).then((res) => {
                 setData(res.data)
             })
             .catch(err => console.log(err))
@@ -26,14 +26,14 @@ function EditWashingStep() {
     return ( 
         <FormWrapper>
             <Title>
-                {'Edit washing step'}
+                {'Edit customer'}
             </Title>
             { data
-                ? <WashingStepForm data={data} setData={setData} isEdit={true}/>
+                ? <CustomerForm data={data} setData={setData} isEdit={true}/>
                 : false
             }
         </FormWrapper> 
     );
 }
 
-export default EditWashingStep;
+export default EditCustomer;
