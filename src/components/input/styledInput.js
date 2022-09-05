@@ -21,7 +21,8 @@ export const StyledInput = styled.input`
         outline: none;
     }
     &:disabled {
-        background-color: #e9eaef;
+        background-color: hsl(0, 0%, 95%);
+        color: hsl(0, 0%, 60%);
     }
 `;
 
@@ -37,7 +38,7 @@ export const InputWrapper = styled.div`
 `;
 
 export const InputWrapperDisabled = styled.div`
-    background: #e9eaef;
+    background: hsl(0, 0%, 95%);
     width: 100%;
     border: 1px solid lightgray;
     padding: 5px;

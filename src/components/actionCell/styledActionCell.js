@@ -26,3 +26,11 @@ export const IconDelete = styled.div`
         opacity: 0.8;
     }
 `;
+
+export const IconView = styled.div`
+    cursor: pointer;
+    color: #2e205d; 
+    &:hover{
+        opacity: 0.8;
+    }
+`;
