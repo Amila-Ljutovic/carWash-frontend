@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Step = styled.div`
-    background-color: #a0ba45;
+    background-color: #5cb77c;
     width: fit-content;
     padding: 3px 13px;
     border-radius: 11px;

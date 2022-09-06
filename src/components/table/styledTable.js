@@ -1,5 +1,6 @@
 
 import styled from "styled-components";
+import { device } from "../../utils/responsive";
 
 export const Container = styled.div`
  
@@ -12,11 +13,18 @@ export const TableWrapper = styled.div`
     overflow: auto;
     border-radius: 4px; 
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
-
+    
+    width: 100%;
 `;
 export const TableStyle = styled.table`
     border-collapse: collapse;
     width: 100%;
+
+    @media ${device.tablet} {
+    width: 1100px;
+    overflow-x: auto;
+    }
+    
 `;
 
 export const TableCell = styled.tr`
@@ -48,15 +56,31 @@ export const Title = styled.div`
     font-size: 30px;
     font-weight: 700;
     color: #2e205d;
+    
+    @media ${device.tablet} {
+        margin-top: 20px;
+    }
 `;
 
 export const TitleWrapper = styled.div`
     margin: 30px 0;
     display: flex;
+
+    @media ${device.tablet} {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 `;
 
 export const PageHeader = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
+    @media ${device.tablet} {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 `;

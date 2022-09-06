@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../utils/responsive";
 
 export const Label = styled.div`
     font-size: 14px;
@@ -9,6 +10,9 @@ export const Label = styled.div`
 
 export const Wrapper = styled.div`
     width: 30%;
+    @media ${device.tablet} {
+        width: 100%;
+    }
 `;
 
 export const RemoveButton = styled.div`

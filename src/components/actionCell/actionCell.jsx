@@ -4,13 +4,20 @@ import * as RiIcons from 'react-icons/ri';
 import * as FiIcons from 'react-icons/fi';
 import * as BsIcons from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
+import axios from "axios"
 
 function ActionCell({ path, value, isReadOnly }) {
     const navigate = useNavigate()
 
     const goToEdit = () => {
-        console.log(path)
         navigate(`/${path}/${value.id}`)
+    }
+
+    const deleteRecord = () => {
+        axios.delete(`${path}/${value.id}`).then((res) => {
+            navigate(0)
+        })
+        .catch(err => console.log(err))
     }
 
     return ( 
@@ -21,7 +28,7 @@ function ActionCell({ path, value, isReadOnly }) {
                         <FiIcons.FiEdit3 onClick={() => goToEdit()} />
                     </IconEdit>
                     <IconDelete>
-                        <RiIcons.RiDeleteBin5Line onClick={() => console.log('delete')} />
+                        <RiIcons.RiDeleteBin5Line onClick={() => deleteRecord('')} />
                     </IconDelete>
                 </>
                 : <IconView>

@@ -4,6 +4,8 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Navigation from './navigation';
 import axios from 'axios';
+import { Provider } from 'react-redux'
+import store from './redux/store'
 
 axios.defaults.baseURL = 'http://127.0.0.1:8000/';
 axios.defaults.headers.common.Accept = 'application/json'
@@ -28,7 +30,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <Navigation />
+    <Provider store={store}>
+      <Navigation />
+    </Provider>
   </React.StrictMode>
 );
 

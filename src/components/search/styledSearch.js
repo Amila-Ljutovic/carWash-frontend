@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { device } from "../../utils/responsive";
 export const Wrapper = styled.div`
     display: flex;
     height: 30px;
@@ -10,6 +10,12 @@ export const Wrapper = styled.div`
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 4px;
+
+    @media ${device.tablet} {
+        border-left: none;
+        margin-left: 0px;
+        padding-left: 0px;
+    }
 `;
 
 export const Icon = styled.div`

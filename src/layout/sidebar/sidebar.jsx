@@ -1,12 +1,12 @@
 import React from "react";
 import { useLocation } from 'react-router-dom'
-
+import { useSelector } from 'react-redux'
 //styled
 import { Wrapper } from "./styledSidebar";
 import { ListWrapper } from "./styledSidebar";
 
 //data
-import { sidebarList } from "../../data";
+//import { sidebarList } from "../../data";
 
 //components
 import SidebarItem from "./sidebarItem/sidebarItem";
@@ -14,7 +14,7 @@ import Logo from "../../components/logo/logo";
 
 function Sidebar() {
     const { pathname } = useLocation()
-    
+    const sidebarList = useSelector(state => state.sidebar.sidebarData)
     return ( 
         <Wrapper>
             <Logo />

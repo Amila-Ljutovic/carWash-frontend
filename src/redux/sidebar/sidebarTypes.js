@@ -1,0 +1,1 @@
+export const SET_SIDEBAR_DATA = 'SET_SIDEBAR_DATA'

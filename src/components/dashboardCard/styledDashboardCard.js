@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { device } from "../../utils/responsive";
 
 export const CardWrapper = styled.div`
     background-color: white;
@@ -7,6 +7,10 @@ export const CardWrapper = styled.div`
     position: relative;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
     padding: 20px;
+
+    @media ${device.tablet} {
+        width: 80%;
+    }    
 `;
 
 export const Title = styled.div`
