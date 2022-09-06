@@ -3,10 +3,8 @@ import { device } from "../../utils/responsive";
 
 export const Wrapper = styled.div`
     margin-bottom: 10px;
-    width: 30%;
-    @media ${device.tablet} {
-        width: 100%;
-    }
+
+  
 `;
 
 export const Label = styled.div`

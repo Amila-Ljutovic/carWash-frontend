@@ -10,12 +10,15 @@ import { useEffect } from "react";
 import axios from 'axios'
 import { useState } from "react";
 
+//api
+import { getWashingPrograms } from "../../../api/washingPrograms";
+
 function WashingPrograms() {
 
     const [washingPrograms, setWashingPrograms] = useState();
 
     useEffect(()=>{
-        axios.get('washing-programs/all').then((res) => {
+        getWashingPrograms().then((res) => {
             setWashingPrograms(res.data);
         }).catch(err => console.log(err))
     }, [])

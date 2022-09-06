@@ -10,6 +10,9 @@ import SaveCancelButtons from "../../../../components/saveCancelButtons/saveCanc
 import axios from 'axios'
 import { useNavigate, useParams } from "react-router-dom";
 
+//api
+import { updateCustomer, createCustomer } from "../../../../api/customers";
+
 function CustomerForm({data, setData, isEdit}) {
     const navigate = useNavigate()
     const { id } = useParams()
@@ -32,13 +35,13 @@ function CustomerForm({data, setData, isEdit}) {
 
     const onSubmit = () => {
         if(isEdit) {
-            axios.put(`customers/${id}`, data).then((res) => {
+            updateCustomer(id, data).then((res) => {
                 navigate('/customers')
             })
             .catch(err => console.log(err))
         }
         else {
-            axios.post('customers/create', data).then((res) => {
+            createCustomer(data).then((res) => {
                 navigate('/customers')
             })
             .catch(err => console.log(err))

@@ -10,6 +10,10 @@ import StepsSelect from "../../../../components/stepsSelect/stepsSelect";
 import axios from 'axios'
 import { useNavigate, useParams } from "react-router-dom";
 
+//api
+import { updateWashingProgram } from "../../../../api/washingPrograms";
+import { createWashingProgram } from "../../../../api/washingPrograms";
+
 function WashingProgramForm({data, setData, isEdit}) {
     const navigate = useNavigate()
     const { id } = useParams()
@@ -32,7 +36,7 @@ function WashingProgramForm({data, setData, isEdit}) {
 
     const onSubmit = () => {
         if(isEdit) {
-            axios.put(`washing-programs/${id}`, {
+            updateWashingProgram(id, {
                 name: data.name,
                 price: data.price,
                 stepsIds: data.washing_steps.map(item => item.id)
@@ -43,7 +47,7 @@ function WashingProgramForm({data, setData, isEdit}) {
         }
         else {
 
-            axios.post('washing-programs/create', {
+            createWashingProgram( {
                 name: data.name,
                 price: data.price,
                 stepsIds: data.washing_steps.map(item => item.id)

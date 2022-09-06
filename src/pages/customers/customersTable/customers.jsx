@@ -6,15 +6,17 @@ import Table from "../../../components/table/table";
 //columns
 import { COLUMNS } from './columns.js'
 import { useEffect } from "react";
-import axios from 'axios'
 import { useState } from "react";
+
+//api
+import { getCustomers } from "../../../api/customers";
 
 function Customers() {
 
     const [customers, setCustomers] = useState();
 
     useEffect(()=>{
-        axios.get('customers/all').then((res) => {
+        getCustomers().then((res) => {
             setCustomers(res.data);
         }).catch(err => console.log(err))
     }, [])

@@ -6,8 +6,11 @@ import React from "react";
 import Input from "../../../../components/input/input";
 import SaveCancelButtons from "../../../../components/saveCancelButtons/saveCancelButtons";
 
-import axios from 'axios'
 import { useNavigate, useParams } from "react-router-dom";
+
+//api
+import { createWashingStep } from "../../../../api/washingSteps";
+import { updateWashingStep } from "../../../../api/washingSteps";
 
 function WashingStepForm({data, setData, isEdit}) {
     const navigate = useNavigate()
@@ -27,13 +30,13 @@ function WashingStepForm({data, setData, isEdit}) {
 
     const onSubmit = () => {
         if(isEdit) {
-            axios.put(`washing-steps/${id}`, data).then((res) => {
+            updateWashingStep(id, data).then((res) => {
                 navigate('/washing-steps')
             })
             .catch(err => console.log(err))
         }
         else {
-            axios.post('washing-steps/create', data).then((res) => {
+            createWashingStep(data).then((res) => {
                 navigate('/washing-steps')
             })
             .catch(err => console.log(err))

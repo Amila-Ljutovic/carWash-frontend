@@ -7,8 +7,11 @@ import axios from 'axios';
 import { Provider } from 'react-redux'
 import store from './redux/store'
 
-axios.defaults.baseURL = 'http://127.0.0.1:8000/';
+let token = localStorage.getItem('token')
+//axios.defaults.baseURL = 'http://127.0.0.1:8000/';
+axios.defaults.baseURL = 'https://carwash-backend-1.herokuapp.com/'
 axios.defaults.headers.common.Accept = 'application/json'
+axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
 axios.interceptors.request.use(request => {
   console.log(request);

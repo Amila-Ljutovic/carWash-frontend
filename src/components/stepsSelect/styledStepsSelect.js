@@ -45,17 +45,30 @@ export const Item = styled.div`
 `;
 
 export const NoStepsSelected = styled.div`
-
+    font-weight: 700;
+    margin-top: 15px;
+    color: #82799e;
 `;
 
 export const AddStepButton = styled.div`
-    background-color: lightgray;
+    background-color: #c0bcce;
+    color: white;
     width: fit-content;
-    padding: 5px 14px;
+    padding: 10px 14px;
     border-radius: 5px;
     margin-top: 16px;
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
 `;
 
 export const SelectWrapper = styled.div`
-    
+    width: 100%;
+    margin-right: 5px;
+`;
+
+export const AddNewWrapper = styled.div`
+    display: flex;
+    align-items: center;
 `;

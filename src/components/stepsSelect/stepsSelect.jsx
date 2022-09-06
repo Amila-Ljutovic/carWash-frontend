@@ -8,7 +8,10 @@ import * as AiICons from "react-icons/ai"
 import Select from 'react-select';
 
 //styled
-import { Label, Wrapper, RemoveButton, Item, ListItem, NoStepsSelected, AddStepButton, SelectWrapper } from "./styledStepsSelect";
+import { Label, Wrapper, RemoveButton, Item, ListItem, NoStepsSelected, AddStepButton, SelectWrapper, AddNewWrapper } from "./styledStepsSelect";
+
+//api
+import { getWashingSteps } from "../../api/washingSteps";
 
 function StepsSelect({label, list, onRemove, onAdd}) {
 
@@ -17,7 +20,7 @@ function StepsSelect({label, list, onRemove, onAdd}) {
     const [isAddButtonVisible, setIsAddButtonVisible] = useState(true)
 
     useEffect(() => {
-        axios.get('washing-steps/all').then((res) => {
+        getWashingSteps().then((res) => {
             setStepsList(res.data)
             let response = res.data.map((item) => {
                 return {
@@ -42,7 +45,7 @@ function StepsSelect({label, list, onRemove, onAdd}) {
             <Wrapper>
                 <Label>{label}</Label>
                 {   !list.length 
-                    ? <NoStepsSelected>{'No steps selected'}</NoStepsSelected>
+                    ? <NoStepsSelected>{'No steps selected.'}</NoStepsSelected>
                     : <>
                         {
                             list.map((item, index) => {
@@ -62,19 +65,21 @@ function StepsSelect({label, list, onRemove, onAdd}) {
                 }
                 {   isAddButtonVisible
                     ? <AddStepButton onClick={() => setIsAddButtonVisible(false)}>{'Add new step'}</AddStepButton>
-                    : <SelectWrapper>
-                        <Select
-                            className="basic-single"
-                            classNamePrefix="select"
-                            isSearchable={true}
-                            name="step"
-                            options={options}
-                            onChange={(e) => addNewStep(e)}
-                            />
+                    : <AddNewWrapper>
+                        <SelectWrapper>
+                            <Select
+                                className="basic-single"
+                                classNamePrefix="select"
+                                isSearchable={true}
+                                name="step"
+                                options={options}
+                                onChange={(e) => addNewStep(e)}
+                                />
+                        </SelectWrapper>
                         <RemoveButton onClick={() => setIsAddButtonVisible(true)}>
                             {'Remove'}
                         </RemoveButton>
-                    </SelectWrapper>
+                    </AddNewWrapper>
                 }
             </Wrapper> 
             : false

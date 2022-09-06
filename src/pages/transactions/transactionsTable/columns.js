@@ -1,4 +1,5 @@
 import ActionCell from "../../../components/actionCell/actionCell"
+import { format } from "date-fns"
 
 export const COLUMNS = [
     {
@@ -15,7 +16,8 @@ export const COLUMNS = [
     },
     {
         Header: 'Date & Time',
-        accessor: 'created_at'
+        accessor: 'created_at',
+        Cell: ({value}) => { return format(new Date(value), 'dd.MM.yyyy hh:mm') }
     },
     {
         Header: 'Price',

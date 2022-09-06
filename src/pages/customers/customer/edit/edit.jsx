@@ -10,13 +10,16 @@ import CustomerForm from "../form/form";
 //styled
 import { FormWrapper, Title } from "./styledEdit"
 
+//api
+import { getCustomerById } from "../../../../api/customers";
+
 function EditCustomer() {
     const { id } = useParams()
     const [data, setData] = useState(null)
 
     useEffect(() => {
         if(id) {
-            axios.get(`customers/${id}`).then((res) => {
+            getCustomerById(id).then((res) => {
                 setData(res.data)
             })
             .catch(err => console.log(err))

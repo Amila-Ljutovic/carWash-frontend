@@ -10,13 +10,16 @@ import WashingStepForm from "../form/form";
 //styled
 import { FormWrapper, Title } from "./styledEdit"
 
+//api
+import { getWashingStepById } from "../../../../api/washingSteps";
+
 function EditWashingStep() {
     const { id } = useParams()
     const [data, setData] = useState(null)
 
     useEffect(() => {
         if(id) {
-            axios.get(`washing-steps/${id}`).then((res) => {
+            getWashingStepById(id).then((res) => {
                 setData(res.data)
             })
             .catch(err => console.log(err))

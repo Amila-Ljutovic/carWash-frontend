@@ -5,17 +5,18 @@ import Table from "../../../components/table/table";
 
 //columns
 import { COLUMNS } from './columns.js'
-import { washingSteps } from "../../../data";
 import { useEffect } from "react";
 import axios from 'axios'
 import { useState } from "react";
+
+import { getWashingSteps } from "../../../api/washingSteps";
 
 function WashingSteps() {
 
     const [washingSteps, setWashingSteps] = useState();
 
     useEffect(()=>{
-        axios.get('washing-steps/all').then((res) => {
+        getWashingSteps().then((res) => {
             setWashingSteps(res.data);
         }).catch(err => console.log(err))
     }, [])

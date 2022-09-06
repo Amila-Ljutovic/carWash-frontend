@@ -10,13 +10,14 @@ import DashboardCard from "../../components/dashboardCard/dashboardCard";
 //styled
 import { DashboardWrapper } from "./styledDashboard"
 
-import axios from 'axios'
+//api
+import { getDashboardData } from "../../api/dashboard";
 
 function Dashboard() {
     const [dashboardData, setDashboardData] = useState()
     const [mostUsedProgram,  setMostUsedProgram] = useState()
     useEffect(() => {
-        axios.get('dashboard-data').then((res) => { 
+        getDashboardData().then((res) => { 
             setDashboardData(res.data)
         })
     }, [])

@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from 'axios'
 
 //components
 import TransactionForm from "../form/form";
@@ -10,13 +9,16 @@ import TransactionForm from "../form/form";
 //styled
 import { FormWrapper, Title } from "./styledEdit"
 
+//api
+import { getTransactionById } from "../../../../api/transactions";
+
 function EditTransaction() {
     const { id } = useParams()
     const [data, setData] = useState(null)
 
     useEffect(() => {
         if(id) {
-            axios.get(`transactions/${id}`).then((res) => {
+            getTransactionById(id).then((res) => {
                 setData(res.data)
             })
             .catch(err => console.log(err))

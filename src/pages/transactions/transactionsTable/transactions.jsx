@@ -9,12 +9,15 @@ import { useEffect } from "react";
 import axios from 'axios'
 import { useState } from "react";
 
+//api
+import { getTransactions } from "../../../api/transactions";
+
 function Transactions() {
 
     const [transactions, setTransactions] = useState();
 
     useEffect(()=>{
-        axios.get('transactions/all').then((res) => {
+        getTransactions().then((res) => {
             setTransactions(res.data);
         }).catch(err => console.log(err))
     }, [])

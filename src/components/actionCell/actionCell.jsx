@@ -4,7 +4,9 @@ import * as RiIcons from 'react-icons/ri';
 import * as FiIcons from 'react-icons/fi';
 import * as BsIcons from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
-import axios from "axios"
+
+//api
+import { deleteRecordFromDb } from '../../api/dashboard';
 
 function ActionCell({ path, value, isReadOnly }) {
     const navigate = useNavigate()
@@ -14,7 +16,7 @@ function ActionCell({ path, value, isReadOnly }) {
     }
 
     const deleteRecord = () => {
-        axios.delete(`${path}/${value.id}`).then((res) => {
+        deleteRecordFromDb(path, value.id).then((res) => {
             navigate(0)
         })
         .catch(err => console.log(err))

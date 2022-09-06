@@ -18,7 +18,6 @@ export const COLUMNS = [
         Header: 'Washing steps',
         accessor: 'washing_steps',
         Cell:  ( {value}) => {
-            console.log(value, 'value')
            return <StepsList 
                 list={value}
             />

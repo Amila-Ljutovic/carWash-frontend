@@ -9,10 +9,14 @@ import Input from "../../../../components/input/input";
 import SaveCancelButtons from "../../../../components/saveCancelButtons/saveCancelButtons";
 import Select from 'react-select';
 
-import axios from 'axios'
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+
+//api
+import { createTransaction } from "../../../../api/transactions";
+import { getCustomers } from "../../../../api/customers";
+import { getWashingPrograms } from "../../../../api/washingPrograms";
 
 function TransactionForm({data, setData, isEdit}) {
     const navigate = useNavigate()
@@ -23,7 +27,7 @@ function TransactionForm({data, setData, isEdit}) {
     const [isPriceSet, setIsPriceSet] = useState(false)
 
     useEffect(() => {
-        axios.get('customers/all').then((res) => {
+        getCustomers().then((res) => {
             setCustomers(res.data.map((item) => { 
                 return {
                 ...item,
@@ -32,7 +36,7 @@ function TransactionForm({data, setData, isEdit}) {
                 } 
             }));
         }).catch(err => console.log(err))
-        axios.get('washing-programs/all').then((res) => {
+        getWashingPrograms().then((res) => {
             setWashingPrograms(res.data.map((item) => { 
                 return {
                 ...item,
@@ -85,7 +89,7 @@ function TransactionForm({data, setData, isEdit}) {
             
         }
         else {
-            axios.post('transactions/create', data).then((res) => {
+            createTransaction(data).then((res) => {
                 navigate('/transactions')
             })
             .catch(err => console.log(err))
