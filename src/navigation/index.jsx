@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 //components
-import Dashboard from "../pages/dashboard/dashboard.jsx"
+
 import Customers from "../pages/customers/customersTable/customers.jsx";
 import CreateCustomer from "../pages/customers/customer/create/create.jsx";
 import EditCustomer from "../pages/customers/customer/edit/edit.jsx";
@@ -21,6 +21,8 @@ import EditTransaction from "../pages/transactions/transaction/edit/edit.jsx";
 import CreateTransaction from "../pages/transactions/transaction/create/create.jsx";
 import LoginForm from "../pages/login/loginForm.jsx";
 import PrivateRoutes from "../utils/privateRoute.js";
+import DashboardPreview from "../pages/dashboard/dashboardPreview.jsx";
+
 //layout
 import Layout from "../layout/layout.jsx";
 
@@ -33,7 +35,7 @@ const Navigation = () => {
                     <Route path="/login" element={<LoginForm />} />
                     <Route element={<PrivateRoutes />}>
                         <Route element={<Layout> <Outlet /> </Layout>}>
-                            <Route exact path="/" element={<Dashboard />} />
+                            <Route exact path="/" element={<DashboardPreview />} />
                             <Route path="/customers" element={<Customers />} />
                             <Route path="/customers/create" element={<CreateCustomer />} />
                             <Route path="/customers/:id" element={<EditCustomer />} />
